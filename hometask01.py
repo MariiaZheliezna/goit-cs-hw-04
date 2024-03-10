@@ -47,6 +47,7 @@ def search_keys(condition, file, keywords):
                 find_result_dic[keyword].append(str(file))
 
 def main():
+    timer = time()  # Стартуємо відлік часу на виконання
     file_list = create_list(folder)
     threads = []
     condition = Semaphore(3)
@@ -60,6 +61,9 @@ def main():
 
     # Результат в заданому форматі у словнику find_result_dic
     print(find_result_dic)
+
+    # Виводимо час виконання
+    print(f"Час виконання: {time() - timer}")
 
 if __name__ == "__main__":
     main()
